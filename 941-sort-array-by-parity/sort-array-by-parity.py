@@ -1,7 +1,15 @@
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
-        for i in range(0,len(nums)-1):
-            for j in range(i+1,len(nums)):
-                if nums[i]%2!=0:
-                    nums[i],nums[j]=nums[j],nums[i]
-        return nums
+        n=len(nums)
+        arr=[0]*n
+        left=0
+        right=n-1
+
+        for i in range(0,n):
+            if nums[i]%2!=0:
+                arr[right]=nums[i]
+                right-=1
+            elif nums[i]%2==0:
+                arr[left]=nums[i]
+                left+=1
+        return arr
